@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		244803E446153143B1836C4D /* Pods_FireStoreEssaie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39978BB88F44D9679806BC5 /* Pods_FireStoreEssaie.framework */; };
 		CAFEAB03207B1A900017838E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFEAB02207B1A900017838E /* AppDelegate.swift */; };
-		CAFEAB05207B1A900017838E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFEAB04207B1A900017838E /* ViewController.swift */; };
+		CAFEAB05207B1A900017838E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFEAB04207B1A900017838E /* MainVC.swift */; };
 		CAFEAB08207B1A900017838E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFEAB06207B1A900017838E /* Main.storyboard */; };
 		CAFEAB0A207B1A930017838E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFEAB09207B1A930017838E /* Assets.xcassets */; };
 		CAFEAB0D207B1A930017838E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFEAB0B207B1A930017838E /* LaunchScreen.storyboard */; };
 		CAFEAB18207B1C650017838E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAFEAB17207B1C640017838E /* GoogleService-Info.plist */; };
+		CAFEAB1A207B26B70017838E /* AddThoughtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFEAB19207B26B70017838E /* AddThoughtVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +22,13 @@
 		A39978BB88F44D9679806BC5 /* Pods_FireStoreEssaie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStoreEssaie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFEAAFF207B1A900017838E /* FireStoreEssaie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireStoreEssaie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFEAB02207B1A900017838E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CAFEAB04207B1A900017838E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAFEAB04207B1A900017838E /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		CAFEAB07207B1A900017838E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAFEAB09207B1A930017838E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAFEAB0C207B1A930017838E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAFEAB0E207B1A930017838E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFEAB17207B1C640017838E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CAFEAB19207B26B70017838E /* AddThoughtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtVC.swift; sourceTree = "<group>"; };
 		CDEE2A94EFE43C9FF2928E4D /* Pods-FireStoreEssaie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireStoreEssaie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireStoreEssaie/Pods-FireStoreEssaie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				CAFEAB02207B1A900017838E /* AppDelegate.swift */,
-				CAFEAB04207B1A900017838E /* ViewController.swift */,
+				CAFEAB04207B1A900017838E /* MainVC.swift */,
+				CAFEAB19207B26B70017838E /* AddThoughtVC.swift */,
 				CAFEAB06207B1A900017838E /* Main.storyboard */,
 				CAFEAB09207B1A930017838E /* Assets.xcassets */,
 				CAFEAB0B207B1A930017838E /* LaunchScreen.storyboard */,
@@ -236,8 +239,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAFEAB05207B1A900017838E /* ViewController.swift in Sources */,
+				CAFEAB05207B1A900017838E /* MainVC.swift in Sources */,
 				CAFEAB03207B1A900017838E /* AppDelegate.swift in Sources */,
+				CAFEAB1A207B26B70017838E /* AddThoughtVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
