@@ -8,11 +8,12 @@
 
 import UIKit
 
+enum ThoughtCategory: Swift.String {
+    case serious, funny, crazy, popular
+}
+
 class MainVC: UIViewController {
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
