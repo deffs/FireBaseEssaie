@@ -16,12 +16,12 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
     @IBOutlet private weak var thoughtTxt: UITextView!
     @IBOutlet private weak var postBtn: UIButton!
     
-    private var selectedCategory = "funny"
+    private var selectedCategory = ThoughtCategory.funny.rawValue
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let font = UIFont(name: "AvenirNext-Regular", size: 16.0)
+        let font = UIFont(name: "AvenirNext-Medium", size: 17.0)
         catSegment.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
         postBtn.layer.cornerRadius = 4.0
         thoughtTxt.layer.cornerRadius = 4.0
@@ -32,7 +32,7 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
-        textView.textColor = UIColor.darkGray
+        textView.textColor = UIColor.white
     }
     
     @IBAction func catChanged(_ sender: Any) {

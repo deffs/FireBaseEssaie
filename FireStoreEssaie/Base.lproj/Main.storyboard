@@ -28,8 +28,9 @@
                                     <segment title="crazy"/>
                                     <segment title="popular"/>
                                 </segments>
-                                <color key="tintColor" name="HighGreen"/>
+                                <color key="tintColor" name="NavGreen"/>
                                 <connections>
+                                    <action selector="catChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wai-1d-ph4"/>
                                     <action selector="catChanged:" destination="Rfi-6g-eN5" eventType="valueChanged" id="udL-fR-wtS"/>
                                 </connections>
                             </segmentedControl>
@@ -61,6 +62,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starIconFilled" translatesAutoresizingMaskIntoConstraints="NO" id="zle-PT-Qd1">
                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <color key="tintColor" name="Greenie"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="24" id="UsK-LM-m92"/>
                                                                 <constraint firstAttribute="height" constant="24" id="Zg9-WV-pni"/>
@@ -83,6 +85,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Kek-ZO-e1J" firstAttribute="top" secondItem="INh-FA-dQi" secondAttribute="bottom" constant="4" id="LVe-QZ-Idi"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wjv-7b-Cuh" secondAttribute="trailing" id="Nz2-Ti-xa9"/>
                                                 <constraint firstItem="wjv-7b-Cuh" firstAttribute="leading" secondItem="INh-FA-dQi" secondAttribute="trailing" constant="8" id="OKB-cD-CyR"/>
                                                 <constraint firstItem="INh-FA-dQi" firstAttribute="leading" secondItem="j0b-HL-qzE" secondAttribute="leadingMargin" id="Q35-aF-pZU"/>
                                                 <constraint firstItem="Kek-ZO-e1J" firstAttribute="leading" secondItem="j0b-HL-qzE" secondAttribute="leadingMargin" id="QUD-zN-Q1q"/>
@@ -107,7 +110,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="MatGrey"/>
-                        <color key="tintColor" name="HighGreen"/>
+                        <color key="tintColor" name="Greenie"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W5y-3J-r0z" secondAttribute="trailing" constant="16" id="9V4-tr-nsr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Zs-St-hxg" secondAttribute="trailing" id="FZO-vK-czd"/>
@@ -121,7 +124,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="ESSAIE" id="1Q9-CG-gIt">
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" springLoaded="YES" id="2d2-g1-aOg">
-                            <color key="tintColor" name="HighGreen"/>
+                            <color key="tintColor" name="Greenie"/>
                             <connections>
                                 <segue destination="Rfi-6g-eN5" kind="show" id="vRJ-mo-rlH"/>
                             </connections>
@@ -151,7 +154,7 @@
                                     <segment title="serious"/>
                                     <segment title="crazy"/>
                                 </segments>
-                                <color key="tintColor" name="HighGreen"/>
+                                <color key="tintColor" name="NavGreen"/>
                                 <connections>
                                     <action selector="catChanged:" destination="Rfi-6g-eN5" eventType="valueChanged" id="M3u-hG-itA"/>
                                 </connections>
@@ -174,12 +177,12 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf4-ZH-Qpa">
                                 <rect key="frame" x="147.5" y="302" width="80" height="36"/>
-                                <color key="backgroundColor" name="HighGreen"/>
+                                <color key="backgroundColor" name="Greenie"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="4l9-1r-abl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <color key="tintColor" name="HighGreen"/>
+                                <color key="tintColor" name="Greenie"/>
                                 <state key="normal" title="Post">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -189,7 +192,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="MatGrey"/>
-                        <color key="tintColor" name="HighGreen"/>
+                        <color key="tintColor" name="Greenie"/>
                         <constraints>
                             <constraint firstItem="xFn-48-NbN" firstAttribute="leading" secondItem="Ofr-Xb-ai9" secondAttribute="leading" constant="16" id="2xQ-MR-xjL"/>
                             <constraint firstItem="hf4-ZH-Qpa" firstAttribute="centerX" secondItem="Mfr-RX-SWT" secondAttribute="centerX" id="6AP-ML-aet"/>
@@ -227,7 +230,7 @@
                         <color key="tintColor" name="HighGreen"/>
                         <color key="barTintColor" name="NavGreen"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="HighGreen"/>
+                            <color key="textColor" name="Greenie"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -243,11 +246,17 @@
     <resources>
         <image name="addThoughtIcon" width="21" height="24"/>
         <image name="starIconFilled" width="20" height="19"/>
+        <namedColor name="Greenie">
+            <color red="0.0" green="0.90196078431372551" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="HighGreen">
-            <color red="0.46274509800000002" green="1" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.41176470588235292" green="0.94117647058823528" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MatGrey">
             <color red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NavGreen">
+            <color red="0.20000000000000001" green="0.41176470588235292" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="NavGreen">
             <color red="0.20000000000000001" green="0.41176470588235292" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

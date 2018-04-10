@@ -20,14 +20,19 @@ class ThoughtCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        likeImg.image = likeImg.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        likeImg.tintColor = #colorLiteral(red: 0.1803921569, green: 0.4901960784, blue: 0.1960784314, alpha: 1)
     }
 
     func configureCell(thought: Thought) {
         usernameLbl.text = thought.username
-        timestampLbl.text = "\(thought.timestamp!)"
         thoughtTxtLbl.text = thought.thoughtTxt
         numLikesLbl.text = String(thought.numLikes)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, HH:mm"
+        let timestamp = formatter.string(from: thought.timestamp)
+        timestampLbl.text = timestamp
     }
 
 }
