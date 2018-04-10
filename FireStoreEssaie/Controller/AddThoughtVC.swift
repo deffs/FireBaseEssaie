@@ -11,11 +11,10 @@ import FirebaseFirestore
 
 class AddThoughtVC: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var catSegment: UISegmentedControl!
-    
-    @IBOutlet weak var userNameBox: UITextField!
-    @IBOutlet weak var thoughtTxt: UITextView!
-    @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet private weak var catSegment: UISegmentedControl!
+    @IBOutlet private weak var userNameBox: UITextField!
+    @IBOutlet private weak var thoughtTxt: UITextView!
+    @IBOutlet private weak var postBtn: UIButton!
     
     private var selectedCategory = "funny"
     
@@ -24,10 +23,10 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
         
         let font = UIFont(name: "AvenirNext-Regular", size: 16.0)
         catSegment.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-        thoughtTxt.layer.cornerRadius = 4.0
         postBtn.layer.cornerRadius = 4.0
+        thoughtTxt.layer.cornerRadius = 4.0
         thoughtTxt.text = "My random thought..."
-        thoughtTxt.textColor = UIColor.lightGray
+        thoughtTxt.textColor = UIColor.white
         thoughtTxt.delegate = self
     }
     
