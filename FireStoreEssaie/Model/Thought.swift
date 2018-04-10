@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Thought {
     
@@ -24,5 +25,24 @@ class Thought {
         self.numLikes = numLikes
         self.numComments = numComments
         self.docId = docId
+    }
+    
+    class func parseData(snapshot: QuerySnapshot?) -> [Thought] {
+        var thoughts = [Thought]()
+        guard let snap = snapshot else { return thoughts }
+        for document in snap.documents {
+            let data = document.data()
+            let username = data[USERNAME] as? String ?? "Anonymous"
+            let timestamp = data[TIMESTAMP] as? Date ?? Date()
+            let thoughtTxt = data[THOUGHT_TXT] as? String ?? ""
+            let numLikes = data[NUM_LIKES] as? Int ?? 0
+            let numComments = data[NUM_COMS] as? Int ?? 0
+            let docId = document.documentID
+            
+            let newThought = Thought(username: username, timestamp: timestamp, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId)
+            thoughts.append(newThought)
+        }
+        
+        return thoughts
     }
 }

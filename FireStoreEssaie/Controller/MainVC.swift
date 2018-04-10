@@ -26,7 +26,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         let font = UIFont(name: "AvenirNext-Medium", size: 17.0)
+        let font = UIFont(name: "AvenirNext-Medium", size: 17.0)
         segControl.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,28 +57,30 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setListener() {
-        thoughtsListener = thoughtsColRef
-            .whereField(CAT, isEqualTo: selectedCat)
-            .order(by: TIMESTAMP, descending: true)
-            .addSnapshotListener { (snapshot, error) in
-            if let err = error {
-                debugPrint("Error fetching docs : \(err)")
-            } else {
-                guard let snap = snapshot else { return }
-                self.thoughts.removeAll()
-                for document in snap.documents {
-                    let data = document.data()
-                    let username = data[USERNAME] as? String ?? "Anonymous"
-                    let timestamp = data[TIMESTAMP] as? Date ?? Date()
-                    let thoughtTxt = data[THOUGHT_TXT] as? String ?? ""
-                    let numLikes = data[NUM_LIKES] as? Int ?? 0
-                    let numComments = data[NUM_COMS] as? Int ?? 0
-                    let docId = document.documentID
-                    
-                    let newThought = Thought(username: username, timestamp: timestamp, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId)
-                    self.thoughts.append(newThought)
-                }
-                self.tableView.reloadData()
+        if selectedCat == ThoughtCategory.popular.rawValue {
+            thoughtsListener = thoughtsColRef
+                .order(by: NUM_LIKES, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+                    if let err = error {
+                        debugPrint("Error fetching docs : \(err)")
+                    } else {
+                        self.thoughts.removeAll()
+                        self.thoughts = Thought.parseData(snapshot: snapshot)
+                        self.tableView.reloadData()
+                    }
+            }
+        } else {
+            thoughtsListener = thoughtsColRef
+                .whereField(CAT, isEqualTo: selectedCat)
+                .order(by: TIMESTAMP, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+                    if let err = error {
+                        debugPrint("Error fetching docs : \(err)")
+                    } else {
+                        self.thoughts.removeAll()
+                        self.thoughts = Thought.parseData(snapshot: snapshot)
+                        self.tableView.reloadData()
+                    }
             }
         }
     }
