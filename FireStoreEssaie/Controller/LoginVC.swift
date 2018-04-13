@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
@@ -19,14 +20,28 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginBtn.layer.cornerRadius = 10.0
-        createAccBtn.layer.cornerRadius = 10.0
+        loginBtn.layer.cornerRadius = 8.0
+        createAccBtn.layer.cornerRadius = 8.0
+        emailBox.layer.cornerRadius = 8.0
+        passBox.layer.cornerRadius = 8.0
     }
 
     @IBAction func loginTap(_ sender: Any) {
+        guard let email = emailBox.text,
+            let password = passBox.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                debugPrint("Error signing in: \(error)")
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func createTap(_ sender: Any) {
+        self.performSegue(withIdentifier: "create", sender: self)
+        
     }
     
 

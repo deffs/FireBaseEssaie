@@ -123,6 +123,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="ESSAIE" id="1Q9-CG-gIt">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VIC-2h-jyn">
+                            <connections>
+                                <action selector="logoutTap:" destination="BYZ-38-t0r" id="ImP-qC-LQd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" springLoaded="YES" id="2d2-g1-aOg">
                             <color key="tintColor" name="Greenie"/>
                             <connections>
@@ -245,7 +250,7 @@
         <!--LoginVC-->
         <scene sceneID="L9n-ll-mMf">
             <objects>
-                <viewController id="aLs-kZ-uH0" customClass="LoginVC" customModule="FireStoreEssaie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="aLs-kZ-uH0" customClass="LoginVC" customModule="FireStoreEssaie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kpk-rK-tow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,6 +310,7 @@
                         <outlet property="emailBox" destination="n4E-4p-Ltc" id="BPu-6g-Ewo"/>
                         <outlet property="loginBtn" destination="zPp-rY-jLX" id="hAJ-RO-kAw"/>
                         <outlet property="passBox" destination="wv3-dg-Gde" id="PA6-ek-ylk"/>
+                        <segue destination="FXJ-i9-jqq" kind="show" identifier="create" id="Wp4-OI-3YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKw-HK-LvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,15 +395,6 @@
         <image name="starIconFilled" width="20" height="19"/>
         <namedColor name="Greenie">
             <color red="0.0" green="0.90196078431372551" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Greenie">
-            <color red="0.0" green="0.90196078431372551" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Greenie">
-            <color red="0.0" green="0.90196078430000004" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Greenie">
-            <color red="0.0" green="0.90196078430000004" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MatGrey">
             <color red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

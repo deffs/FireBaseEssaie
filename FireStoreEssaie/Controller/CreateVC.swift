@@ -7,27 +7,58 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateVC: UIViewController {
-
+    
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var passBox: UITextField!
     @IBOutlet weak var userBox: UITextField!
     @IBOutlet weak var createBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         createBtn.layer.cornerRadius = 10.0
         cancelBtn.layer.cornerRadius = 10.0
+        emailBox.layer.cornerRadius = 8.0
+        passBox.layer.cornerRadius = 8.0
+        userBox.layer.cornerRadius = 8.0
     }
-   
+    
     @IBAction func createTap(_ sender: Any) {
+        
+        guard let email = emailBox.text,
+            let password = passBox.text,
+            let username = userBox.text else { return }
+        Auth.auth().createUser(withEmail: "", password: "") { (user, error) in
+            if let error = error {
+                debugPrint("Error creating user: \(error.localizedDescription)")
+            }
+            
+            let changeRequest = user?.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            changeRequest?.commitChanges(completion: { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                }
+            })
+            guard let userId = user?.uid else { return }
+            Firestore.firestore().collection(USERS_REF).document(userId).setData([
+                USERNAME : username,
+                DATE_CREATED : FieldValue.serverTimestamp()
+                ], completion: {(error) in
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                    } else {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+            })
+        }
     }
     
     @IBAction func cancelTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
