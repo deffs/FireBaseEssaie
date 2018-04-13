@@ -25,6 +25,16 @@ class CreateVC: UIViewController {
         emailBox.layer.cornerRadius = 8.0
         passBox.layer.cornerRadius = 8.0
         userBox.layer.cornerRadius = 8.0
+        
+        emailBox.attributedPlaceholder = NSAttributedString(string: "email",
+                                                               attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+        passBox.attributedPlaceholder = NSAttributedString(string: "password",
+                                                            attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+        userBox.attributedPlaceholder = NSAttributedString(string: "public username",
+                                                            attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+        emailBox.setLeftPaddingPoints(10)
+        passBox.setLeftPaddingPoints(10)
+        userBox.setLeftPaddingPoints(10)
     }
     
     @IBAction func createTap(_ sender: Any) {
@@ -32,7 +42,7 @@ class CreateVC: UIViewController {
         guard let email = emailBox.text,
             let password = passBox.text,
             let username = userBox.text else { return }
-        Auth.auth().createUser(withEmail: "", password: "") { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 debugPrint("Error creating user: \(error.localizedDescription)")
             }
@@ -62,3 +72,4 @@ class CreateVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+

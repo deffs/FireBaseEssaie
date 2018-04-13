@@ -33,13 +33,15 @@ class Thought {
         for document in snap.documents {
             let data = document.data()
             let username = data[USERNAME] as? String ?? "Anonymous"
-            let timestamp = data[TIMESTAMP] as? Date ?? Date()
+            let timestamp = data[TIMESTAMP] as? Timestamp ?? Timestamp()
             let thoughtTxt = data[THOUGHT_TXT] as? String ?? ""
             let numLikes = data[NUM_LIKES] as? Int ?? 0
             let numComments = data[NUM_COMS] as? Int ?? 0
             let docId = document.documentID
             
-            let newThought = Thought(username: username, timestamp: timestamp, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId)
+            let date = timestamp.dateValue()
+            
+            let newThought = Thought(username: username, timestamp: date, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId)
             thoughts.append(newThought)
         }
         

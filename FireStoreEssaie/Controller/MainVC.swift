@@ -17,6 +17,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var segControl: UISegmentedControl!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var logoutBtn: UIBarButtonItem!
     
     private var thoughts = [Thought]()
     private var thoughtsColRef: CollectionReference!
@@ -26,9 +27,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let font = UIFont(name: "AvenirNext-Medium", size: 17.0)
         segControl.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        logoutBtn.setTitleTextAttributes([NSAttributedStringKey.font : font!], for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80.0
@@ -64,9 +66,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if user == nil {
+                let top = UIApplication.shared.keyWindow?.rootViewController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let loginVC = storyboard.instantiateViewController(withIdentifier: "login")
-                self.present(loginVC, animated: true, completion: nil)
+                top?.present(loginVC, animated: true, completion: nil)
             } else {
                 self.setListener()
             }
