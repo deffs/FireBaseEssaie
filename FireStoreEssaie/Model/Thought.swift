@@ -17,14 +17,16 @@ class Thought {
     private(set) var numLikes: Int!
     private(set) var numComments: Int!
     private(set) var docId: String!
+    private(set) var userId: String!
     
-    init(username: String, timestamp: Date, thoughtTxt: String, numLikes: Int, numComments: Int, docId: String) {
+    init(username: String, timestamp: Date, thoughtTxt: String, numLikes: Int, numComments: Int, docId: String, userId: String) {
         self.username = username
         self.timestamp = timestamp
         self.thoughtTxt = thoughtTxt
         self.numLikes = numLikes
         self.numComments = numComments
         self.docId = docId
+        self.userId = userId
     }
     
     class func parseData(snapshot: QuerySnapshot?) -> [Thought] {
@@ -38,9 +40,10 @@ class Thought {
             let numLikes = data[NUM_LIKES] as? Int ?? 0
             let numComments = data[NUM_COMS] as? Int ?? 0
             let docId = document.documentID
+            let userId = data[USER_ID] as? String ?? ""
             let date = timestamp.dateValue()
             
-            let newThought = Thought(username: username, timestamp: date, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId)
+            let newThought = Thought(username: username, timestamp: date, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId, userId: userId)
             thoughts.append(newThought)
         }
         

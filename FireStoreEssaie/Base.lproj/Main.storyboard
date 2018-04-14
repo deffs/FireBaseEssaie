@@ -96,16 +96,21 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis_dark" translatesAutoresizingMaskIntoConstraints="NO" id="jbn-7w-NPV">
+                                                    <rect key="frame" x="330" y="8.5" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Kek-ZO-e1J" firstAttribute="top" secondItem="INh-FA-dQi" secondAttribute="bottom" constant="4" id="LVe-QZ-Idi"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wjv-7b-Cuh" secondAttribute="trailing" id="Nz2-Ti-xa9"/>
                                                 <constraint firstItem="wjv-7b-Cuh" firstAttribute="leading" secondItem="INh-FA-dQi" secondAttribute="trailing" constant="8" id="OKB-cD-CyR"/>
+                                                <constraint firstItem="jbn-7w-NPV" firstAttribute="centerY" secondItem="wjv-7b-Cuh" secondAttribute="centerY" id="OeZ-kp-02V"/>
                                                 <constraint firstItem="INh-FA-dQi" firstAttribute="leading" secondItem="j0b-HL-qzE" secondAttribute="leadingMargin" id="Q35-aF-pZU"/>
                                                 <constraint firstItem="Kek-ZO-e1J" firstAttribute="leading" secondItem="j0b-HL-qzE" secondAttribute="leadingMargin" id="QUD-zN-Q1q"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Kek-ZO-e1J" secondAttribute="trailing" id="TUu-Ov-f4y"/>
                                                 <constraint firstItem="CDx-QR-ZOD" firstAttribute="top" secondItem="Kek-ZO-e1J" secondAttribute="bottom" constant="3" id="V7e-Ur-yHy"/>
                                                 <constraint firstItem="wjv-7b-Cuh" firstAttribute="centerY" secondItem="INh-FA-dQi" secondAttribute="centerY" id="Wu6-KS-NAt"/>
+                                                <constraint firstItem="jbn-7w-NPV" firstAttribute="trailing" secondItem="j0b-HL-qzE" secondAttribute="trailingMargin" id="ga0-yl-r1o"/>
                                                 <constraint firstItem="CDx-QR-ZOD" firstAttribute="bottom" secondItem="j0b-HL-qzE" secondAttribute="bottomMargin" id="isF-K3-wBy"/>
                                                 <constraint firstItem="INh-FA-dQi" firstAttribute="top" secondItem="j0b-HL-qzE" secondAttribute="topMargin" id="vhc-Wc-x0W"/>
                                                 <constraint firstItem="CDx-QR-ZOD" firstAttribute="leading" secondItem="j0b-HL-qzE" secondAttribute="leadingMargin" id="z6P-CB-8GB"/>
@@ -113,9 +118,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="MatGrey"/>
                                         <connections>
+                                            <outlet property="commentImg" destination="2ws-bT-Nvw" id="u6X-X3-EgK"/>
                                             <outlet property="likeImg" destination="zle-PT-Qd1" id="xGE-24-YIX"/>
                                             <outlet property="numComLbl" destination="9Gn-c8-go2" id="c91-XF-Jhh"/>
                                             <outlet property="numLikesLbl" destination="O47-17-Kce" id="KHA-Ln-Oeu"/>
+                                            <outlet property="optionsMenu" destination="jbn-7w-NPV" id="7w6-NH-lok"/>
                                             <outlet property="thoughtTxtLbl" destination="Kek-ZO-e1J" id="Cxr-jt-1js"/>
                                             <outlet property="timestampLbl" destination="wjv-7b-Cuh" id="2F5-rt-HPO"/>
                                             <outlet property="usernameLbl" destination="INh-FA-dQi" id="h68-oy-m9p"/>
@@ -278,21 +285,27 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis_dark" translatesAutoresizingMaskIntoConstraints="NO" id="ZaF-yx-w9P">
+                                                    <rect key="frame" x="330" y="8" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="MatGrey"/>
                                             <constraints>
                                                 <constraint firstItem="fjg-d8-B3H" firstAttribute="leading" secondItem="kNb-PP-uGT" secondAttribute="leadingMargin" id="LU1-6H-xT6"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="fjg-d8-B3H" secondAttribute="bottom" id="Mml-V8-FZj"/>
                                                 <constraint firstItem="8mW-5b-NVt" firstAttribute="leading" secondItem="9OH-fz-McE" secondAttribute="trailing" constant="8" id="QY0-r5-86S"/>
+                                                <constraint firstItem="ZaF-yx-w9P" firstAttribute="trailing" secondItem="kNb-PP-uGT" secondAttribute="trailingMargin" id="X63-bX-NDt"/>
                                                 <constraint firstItem="9OH-fz-McE" firstAttribute="top" secondItem="kNb-PP-uGT" secondAttribute="topMargin" id="Xa6-9z-ZxF"/>
                                                 <constraint firstItem="9OH-fz-McE" firstAttribute="leading" secondItem="kNb-PP-uGT" secondAttribute="leadingMargin" id="i0S-kf-HZm"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fjg-d8-B3H" secondAttribute="trailing" id="nmh-TZ-mJI"/>
+                                                <constraint firstItem="ZaF-yx-w9P" firstAttribute="centerY" secondItem="8mW-5b-NVt" secondAttribute="centerY" id="qiT-K4-Gkp"/>
                                                 <constraint firstItem="fjg-d8-B3H" firstAttribute="top" secondItem="9OH-fz-McE" secondAttribute="bottom" constant="4" id="rk6-DA-gtE"/>
                                                 <constraint firstItem="8mW-5b-NVt" firstAttribute="centerY" secondItem="9OH-fz-McE" secondAttribute="centerY" id="rnP-m6-g4x"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentTxt" destination="fjg-d8-B3H" id="RgO-35-c3P"/>
+                                            <outlet property="optionsMenu" destination="ZaF-yx-w9P" id="pnU-BN-OHO"/>
                                             <outlet property="timeLbl" destination="8mW-5b-NVt" id="5vn-tc-Nnj"/>
                                             <outlet property="usernameLbl" destination="9OH-fz-McE" id="Vl9-9v-fHq"/>
                                         </connections>
@@ -579,6 +592,7 @@
     <resources>
         <image name="addThoughtIcon" width="21" height="24"/>
         <image name="commentIcon" width="26" height="22"/>
+        <image name="ellipsis_dark" width="30" height="30"/>
         <image name="forest" width="128" height="128"/>
         <image name="starIconFilled" width="20" height="19"/>
         <namedColor name="Greenie">

@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 
+protocol ThoughtDelegate {
+    func optionsTap(thought: Thought)
+}
+
 class ThoughtCell: UITableViewCell {
 
     
@@ -18,13 +22,18 @@ class ThoughtCell: UITableViewCell {
     @IBOutlet weak var numLikesLbl: UILabel!
     @IBOutlet weak var numComLbl: UILabel!
     @IBOutlet weak var likeImg: UIImageView!
+    @IBOutlet weak var commentImg: UIImageView!
+    @IBOutlet weak var optionsMenu: UIImageView!
     
     private var thought: Thought!
+    private var delegate: ThoughtDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         likeImg.image = likeImg.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         likeImg.tintColor = #colorLiteral(red: 0.1803921569, green: 0.4901960784, blue: 0.1960784314, alpha: 1)
+        commentImg.image = commentImg.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        commentImg.tintColor = #colorLiteral(red: 0, green: 0.9019607843, blue: 0.462745098, alpha: 1)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
         likeImg.addGestureRecognizer(tap)
@@ -38,8 +47,10 @@ class ThoughtCell: UITableViewCell {
 //            .updateData([NUM_LIKES : thought.numLikes + 1])
     }
 
-    func configureCell(thought: Thought) {
+    func configureCell(thought: Thought, delegate: ThoughtDelegate?) {
+        optionsMenu.isHidden = true
         self.thought = thought
+        self.delegate = delegate
         usernameLbl.text = thought.username
         thoughtTxtLbl.text = thought.thoughtTxt
         numLikesLbl.text = String(thought.numLikes)
@@ -49,6 +60,17 @@ class ThoughtCell: UITableViewCell {
         formatter.dateFormat = "MMM d, HH:mm"
         let timestamp = formatter.string(from: thought.timestamp)
         timestampLbl.text = timestamp
+        
+        if thought.userId == Auth.auth().currentUser?.uid {
+            optionsMenu.isHidden = false
+            optionsMenu.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(optionsTap))
+            optionsMenu.addGestureRecognizer(tap)
+        }
+    }
+    
+    @objc func optionsTap() {
+        delegate?.optionsTap(thought: thought)
     }
 
 }

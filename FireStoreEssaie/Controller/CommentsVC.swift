@@ -9,7 +9,11 @@
 import UIKit
 import Firebase
 
-class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CommentDelegate {
+    func cOptionsTapped(comment: Comment) {
+        print(comment.username)
+    }
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -48,7 +52,7 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             .order(by: TIMESTAMP, descending: false)
             .addSnapshotListener({ (snapshot, error) in
                 guard let snapshot = snapshot else {
-                    debugPrint("Error fetching comments :\(error)")
+                    debugPrint("Error fetching comments :\(error!)")
                     return
                 }
                 self.comments.removeAll()
@@ -79,7 +83,8 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             transaction.setData([
                 COM_TXT : commentTxt,
                 TIMESTAMP : FieldValue.serverTimestamp(),
-                USERNAME : self.username
+                USERNAME : self.username,
+                USER_ID : Auth.auth().currentUser?.uid ?? ""
                 ], forDocument: newCommentRef)
             
             return nil
@@ -100,7 +105,7 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCell
-        cell.configureCell(comment: comments[indexPath.row])
+        cell.configureCell(comment: comments[indexPath.row], delegate: self)
         return cell
     }
 

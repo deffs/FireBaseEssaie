@@ -13,7 +13,11 @@ enum ThoughtCategory: Swift.String {
     case serious, funny, crazy, popular
 }
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ThoughtDelegate {
+    
+    func optionsTap(thought: Thought) {
+        //
+    }
     
     @IBOutlet private weak var segControl: UISegmentedControl!
     @IBOutlet private weak var tableView: UITableView!
@@ -119,7 +123,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ThoughtCell", for: indexPath) as? ThoughtCell {
-            cell.configureCell(thought: thoughts[indexPath.row])
+            cell.configureCell(thought: thoughts[indexPath.row], delegate: self)
             return cell
         } else {
             return UITableViewCell()

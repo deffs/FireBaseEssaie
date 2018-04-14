@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import Firebase
 
 class AddThoughtVC: UIViewController, UITextViewDelegate {
     
@@ -53,7 +53,8 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
             NUM_LIKES : 0,
             THOUGHT_TXT : thoughtTxt.text,
             TIMESTAMP : FieldValue.serverTimestamp(),
-            USERNAME : userNameBox.text!
+            USERNAME : userNameBox.text!,
+            USER_ID : Auth.auth().currentUser?.uid ?? ""
         ]) { (err) in
             if let err = err {
                 debugPrint("Error adding doc: \(err)")
