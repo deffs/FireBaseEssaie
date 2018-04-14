@@ -15,10 +15,6 @@ enum ThoughtCategory: Swift.String {
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ThoughtDelegate {
     
-    func optionsTap(thought: Thought) {
-        //
-    }
-    
     @IBOutlet private weak var segControl: UISegmentedControl!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var logoutBtn: UIBarButtonItem!
@@ -40,6 +36,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
         thoughtsColRef = Firestore.firestore().collection(THOUGHTS_REF)
+    }
+    
+    func optionsTap(thought: Thought) {
+        //
     }
     
     @IBAction func catChanged(_ sender: Any) {
