@@ -11,6 +11,7 @@
 		CA4764682081639F00C8DC79 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4764672081639F00C8DC79 /* CommentsVC.swift */; };
 		CA47646A208166FD00C8DC79 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA476469208166FD00C8DC79 /* CommentCell.swift */; };
 		CA47646C2081683900C8DC79 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47646B2081683900C8DC79 /* Comment.swift */; };
+		CA47646E2081A65B00C8DC79 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47646D2081A65B00C8DC79 /* KeyboardBoundView.swift */; };
 		CA8E9AD5207D1C5900002E32 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E9AD4207D1C5900002E32 /* Thought.swift */; };
 		CA8E9AD8207D205900002E32 /* ThoughtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E9AD7207D205900002E32 /* ThoughtCell.swift */; };
 		CA8E9ADB207D220000002E32 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8E9ADA207D220000002E32 /* Default-568h@2x.png */; };
@@ -32,6 +33,7 @@
 		CA4764672081639F00C8DC79 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		CA476469208166FD00C8DC79 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		CA47646B2081683900C8DC79 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		CA47646D2081A65B00C8DC79 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		CA8E9AD4207D1C5900002E32 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		CA8E9AD7207D205900002E32 /* ThoughtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtCell.swift; sourceTree = "<group>"; };
 		CA8E9ADA207D220000002E32 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				CAFEAB1B207C791B0017838E /* Consts.swift */,
+				CA47646D2081A65B00C8DC79 /* KeyboardBoundView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			files = (
 				CA8E9AD5207D1C5900002E32 /* Thought.swift in Sources */,
 				CAFEAB05207B1A900017838E /* MainVC.swift in Sources */,
+				CA47646E2081A65B00C8DC79 /* KeyboardBoundView.swift in Sources */,
 				CA8E9B02207DCBED00002E32 /* LoginVC.swift in Sources */,
 				CAFEAB1C207C791B0017838E /* Consts.swift in Sources */,
 				CA8E9AD8207D205900002E32 /* ThoughtCell.swift in Sources */,

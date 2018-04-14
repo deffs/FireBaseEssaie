@@ -12,6 +12,8 @@ import UIKit
 
 let THOUGHTS_REF =  "thoughts"
 let USERS_REF = "users"
+let COM_REF = "comments"
+
 let CAT = "category"
 let NUM_COMS = "numComments"
 let NUM_LIKES = "numLikes"
@@ -19,6 +21,7 @@ let THOUGHT_TXT = "thoughtTxt"
 let TIMESTAMP = "timestamp"
 let USERNAME = "username"
 let DATE_CREATED = "dateCreated"
+let COM_TXT = "commentTxt"
 
 
 extension UITextField {

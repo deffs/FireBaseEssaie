@@ -35,7 +35,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.tableFooterView = UIView()
         thoughtsColRef = Firestore.firestore().collection(THOUGHTS_REF)
     }
     
