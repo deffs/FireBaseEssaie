@@ -12,7 +12,6 @@ import Firebase
 class AddThoughtVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet private weak var catSegment: UISegmentedControl!
-    @IBOutlet private weak var userNameBox: UITextField!
     @IBOutlet private weak var thoughtTxt: UITextView!
     @IBOutlet private weak var postBtn: UIButton!
     
@@ -53,7 +52,7 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
             NUM_LIKES : 0,
             THOUGHT_TXT : thoughtTxt.text,
             TIMESTAMP : FieldValue.serverTimestamp(),
-            USERNAME : userNameBox.text!,
+            USERNAME : Auth.auth().currentUser?.displayName ?? "",
             USER_ID : Auth.auth().currentUser?.uid ?? ""
         ]) { (err) in
             if let err = err {

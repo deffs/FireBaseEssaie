@@ -38,10 +38,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
         thoughtsColRef = Firestore.firestore().collection(THOUGHTS_REF)
     }
     
-    func optionsTap(thought: Thought) {
-        //
-    }
-    
     @IBAction func catChanged(_ sender: Any) {
         switch segControl.selectedSegmentIndex {
         case 0:
@@ -83,6 +79,49 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
     override func viewWillDisappear(_ animated: Bool) {
         if thoughtsListener != nil {
             thoughtsListener.remove()
+        }
+    }
+    
+    func optionsTap(thought: Thought) {
+        let alert = UIAlertController(title: "Delete", message: "Want to delete your thought?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete Thought", style: .default) { (action) in
+            
+            self.delete(collection: Firestore.firestore().collection(THOUGHTS_REF).document(thought.docId).collection(COM_REF), completion: { (error) in
+                if let error = error {
+                    debugPrint("Can not delete subcollec: \(error)")
+                } else {
+                    Firestore.firestore().collection(THOUGHTS_REF).document(thought.docId).delete(completion: { (error) in
+                        if let error = error {
+                            debugPrint("Can not delete thought: \(error)")
+                        } else {
+                            alert.dismiss(animated: true, completion: nil)
+                        }
+                    })
+                }
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func delete(collection: CollectionReference, batchSize: Int = 100, completion: @escaping (Error?) -> ()) {
+        
+        collection.limit(to: batchSize).getDocuments { (docs, error) in
+            guard let docs = docs else { completion(error); return }
+            
+            guard docs.count > 0 else { completion(nil); return }
+            
+            let batch = collection.firestore.batch()
+            docs.documents.forEach { batch.deleteDocument($0.reference) }
+            
+            batch.commit { (batchError) in
+                if let batchError = batchError { completion(batchError) }
+                else {
+                    self.delete(collection: collection, batchSize: batchSize, completion: completion)
+                }
+            }
         }
     }
     
