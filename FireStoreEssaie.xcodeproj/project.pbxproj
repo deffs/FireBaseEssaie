@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		244803E446153143B1836C4D /* Pods_FireStoreEssaie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39978BB88F44D9679806BC5 /* Pods_FireStoreEssaie.framework */; };
+		CA4764682081639F00C8DC79 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4764672081639F00C8DC79 /* CommentsVC.swift */; };
+		CA47646A208166FD00C8DC79 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA476469208166FD00C8DC79 /* CommentCell.swift */; };
+		CA47646C2081683900C8DC79 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47646B2081683900C8DC79 /* Comment.swift */; };
 		CA8E9AD5207D1C5900002E32 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E9AD4207D1C5900002E32 /* Thought.swift */; };
 		CA8E9AD8207D205900002E32 /* ThoughtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E9AD7207D205900002E32 /* ThoughtCell.swift */; };
 		CA8E9ADB207D220000002E32 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8E9ADA207D220000002E32 /* Default-568h@2x.png */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		5348FA8D14F7DDF10CC54B3B /* Pods-FireStoreEssaie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireStoreEssaie.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireStoreEssaie/Pods-FireStoreEssaie.release.xcconfig"; sourceTree = "<group>"; };
 		A39978BB88F44D9679806BC5 /* Pods_FireStoreEssaie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStoreEssaie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA4764672081639F00C8DC79 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
+		CA476469208166FD00C8DC79 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		CA47646B2081683900C8DC79 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		CA8E9AD4207D1C5900002E32 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		CA8E9AD7207D205900002E32 /* ThoughtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtCell.swift; sourceTree = "<group>"; };
 		CA8E9ADA207D220000002E32 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 			children = (
 				CAFEAB04207B1A900017838E /* MainVC.swift */,
 				CAFEAB19207B26B70017838E /* AddThoughtVC.swift */,
+				CA4764672081639F00C8DC79 /* CommentsVC.swift */,
 				CA8E9B01207DCBED00002E32 /* LoginVC.swift */,
 				CA8E9B03207DCD3800002E32 /* CreateVC.swift */,
 			);
@@ -96,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8E9AD4207D1C5900002E32 /* Thought.swift */,
+				CA47646B2081683900C8DC79 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8E9AD7207D205900002E32 /* ThoughtCell.swift */,
+				CA476469208166FD00C8DC79 /* CommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,9 +314,12 @@
 				CA8E9B02207DCBED00002E32 /* LoginVC.swift in Sources */,
 				CAFEAB1C207C791B0017838E /* Consts.swift in Sources */,
 				CA8E9AD8207D205900002E32 /* ThoughtCell.swift in Sources */,
+				CA47646A208166FD00C8DC79 /* CommentCell.swift in Sources */,
 				CAFEAB03207B1A900017838E /* AppDelegate.swift in Sources */,
 				CA8E9B04207DCD3800002E32 /* CreateVC.swift in Sources */,
 				CAFEAB1A207B26B70017838E /* AddThoughtVC.swift in Sources */,
+				CA47646C2081683900C8DC79 /* Comment.swift in Sources */,
+				CA4764682081639F00C8DC79 /* CommentsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,7 +38,6 @@ class Thought {
             let numLikes = data[NUM_LIKES] as? Int ?? 0
             let numComments = data[NUM_COMS] as? Int ?? 0
             let docId = document.documentID
-            
             let date = timestamp.dateValue()
             
             let newThought = Thought(username: username, timestamp: date, thoughtTxt: thoughtTxt, numLikes: numLikes, numComments: numComments, docId: docId)

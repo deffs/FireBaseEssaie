@@ -16,6 +16,7 @@ class ThoughtCell: UITableViewCell {
     @IBOutlet weak var timestampLbl: UILabel!
     @IBOutlet weak var thoughtTxtLbl: UILabel!
     @IBOutlet weak var numLikesLbl: UILabel!
+    @IBOutlet weak var numComLbl: UILabel!
     @IBOutlet weak var likeImg: UIImageView!
     
     private var thought: Thought!
@@ -31,10 +32,10 @@ class ThoughtCell: UITableViewCell {
     }
     
     @objc func likeTapped() {
-        //Firestore.firestore().collection(THOUGHTS_REF).document(thought.docId)
-         //   .setData([NUM_LIKES : thought.numLikes + 1], options: SetOptions.merge())
-        Firestore.firestore().document("thoughts/\(thought.docId!)")
-            .updateData([NUM_LIKES : thought.numLikes + 1])
+        Firestore.firestore().collection(THOUGHTS_REF).document(thought.docId)
+            .setData([NUM_LIKES : thought.numLikes + 1], options: SetOptions.merge())
+        //Firestore.firestore().document("thoughts/\(thought.docId!)")
+//            .updateData([NUM_LIKES : thought.numLikes + 1])
     }
 
     func configureCell(thought: Thought) {
@@ -42,6 +43,7 @@ class ThoughtCell: UITableViewCell {
         usernameLbl.text = thought.username
         thoughtTxtLbl.text = thought.thoughtTxt
         numLikesLbl.text = String(thought.numLikes)
+        numComLbl.text = String(thought.numComments)
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, HH:mm"
