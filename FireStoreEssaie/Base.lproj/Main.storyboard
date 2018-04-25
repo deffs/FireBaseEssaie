@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -146,12 +145,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="ESSAIE" id="1Q9-CG-gIt">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="VIC-2h-jyn">
+                            <color key="tintColor" name="LightGreen"/>
                             <connections>
                                 <action selector="logoutTap:" destination="BYZ-38-t0r" id="ImP-qC-LQd"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" springLoaded="YES" id="2d2-g1-aOg">
-                            <color key="tintColor" name="Greenie"/>
+                            <color key="tintColor" name="LightGreen"/>
                             <connections>
                                 <segue destination="Rfi-6g-eN5" kind="show" id="vRJ-mo-rlH"/>
                             </connections>
@@ -411,10 +411,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SgN-Hk-HXe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="Greenie"/>
+                        <color key="tintColor" name="LightGreen"/>
                         <color key="barTintColor" name="NavGreen"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="Greenie"/>
+                            <color key="textColor" name="LightGreen"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -500,7 +500,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="MatGrey"/>
                         <constraints>
                             <constraint firstItem="m29-B0-zCZ" firstAttribute="top" secondItem="bSY-3v-ncA" secondAttribute="top" constant="16" id="BAA-tq-D2J"/>
                             <constraint firstItem="wv3-dg-Gde" firstAttribute="top" secondItem="n4E-4p-Ltc" secondAttribute="bottom" constant="32" id="Hra-To-Mik"/>
@@ -604,7 +604,7 @@
                                 <rect key="frame" x="123" y="121" width="128" height="128"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="MatGrey"/>
                         <constraints>
                             <constraint firstItem="MNT-58-RS4" firstAttribute="top" secondItem="dSx-Fs-6Sr" secondAttribute="bottom" constant="32" id="LmT-pF-VcM"/>
                             <constraint firstItem="B5Y-Wd-pkL" firstAttribute="centerX" secondItem="9Zn-ed-AbK" secondAttribute="centerX" id="Ppt-nx-vJk"/>
@@ -643,7 +643,7 @@
         <namedColor name="Greenie">
             <color red="0.0" green="0.90196078430000004" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Greenie">
+        <namedColor name="LightGreen">
             <color red="0.0" green="0.90196078431372551" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MatGrey">
