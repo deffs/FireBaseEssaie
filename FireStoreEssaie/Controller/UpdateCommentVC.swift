@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class UpdateCommentVC: UIViewController {
-
+    
     @IBOutlet weak var commentTxt: UITextView!
     @IBOutlet weak var updateBtn: UIButton!
     
@@ -18,20 +18,22 @@ class UpdateCommentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         commentTxt.layer.cornerRadius = 8.0
         updateBtn.layer.cornerRadius = 8.0
         commentTxt.text = commentData.comment.commentTxt
     }
-
+    
     
     
     @IBAction func updateTap(_ sender: Any) {
-        Firestore.firestore().collection(THOUGHTS_REF).document(commentData.thought.docId).collection(COM_REF).document(commentData.comment.docId).updateData([COM_TXT : commentTxt.text]) { (error) in
-            if let error = error {
-                debugPrint("Unable to update \(error)")
-            } else {
-                self.navigationController?.popViewController(animated: true)
+        if let comment = commentTxt.text {
+            Firestore.firestore().collection(THOUGHTS_REF).document(commentData.thought.docId).collection(COM_REF).document(commentData.comment.docId).updateData([COM_TXT : comment]) { (error) in
+                if let error = error {
+                    debugPrint("Unable to update \(error)")
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }

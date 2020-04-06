@@ -46,19 +46,21 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func postTap(_ sender: Any) {
-        Firestore.firestore().collection(THOUGHTS_REF).addDocument(data: [
-            CAT : selectedCategory,
-            NUM_COMS : 0,
-            NUM_LIKES : 0,
-            THOUGHT_TXT : thoughtTxt.text,
-            TIMESTAMP : FieldValue.serverTimestamp(),
-            USERNAME : Auth.auth().currentUser?.displayName ?? "",
-            USER_ID : Auth.auth().currentUser?.uid ?? ""
-        ]) { (err) in
-            if let err = err {
-                debugPrint("Error adding doc: \(err)")
-            } else {
-                self.navigationController?.popViewController(animated: true)
+        if let thought = thoughtTxt.text {
+            Firestore.firestore().collection(THOUGHTS_REF).addDocument(data: [
+                CAT : selectedCategory,
+                NUM_COMS : 0,
+                NUM_LIKES : 0,
+                THOUGHT_TXT : thought,
+                TIMESTAMP : FieldValue.serverTimestamp(),
+                USERNAME : Auth.auth().currentUser?.displayName ?? "",
+                USER_ID : Auth.auth().currentUser?.uid ?? ""
+            ]) { (err) in
+                if let err = err {
+                    debugPrint("Error adding doc: \(err)")
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }

@@ -134,11 +134,14 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             transaction.updateData([NUM_COMS : oldNumComments + 1], forDocument: self.thoughtRef)
             let newCommentRef = self.firestore.collection(THOUGHTS_REF).document(self.thought.docId)
                 .collection(COM_REF).document()
-            
+            guard let username = self.username else {
+                debugPrint("username is nil")
+                return nil
+            }
             transaction.setData([
                 COM_TXT : commentTxt,
                 TIMESTAMP : FieldValue.serverTimestamp(),
-                USERNAME : self.username,
+                USERNAME : username,
                 USER_ID : Auth.auth().currentUser?.uid ?? ""
                 ], forDocument: newCommentRef)
             
