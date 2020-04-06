@@ -29,12 +29,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
         super.viewDidLoad()
 
         let font = UIFont(name: "AvenirNext-Medium", size: 17.0)
-        segControl.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-        logoutBtn.setTitleTextAttributes([NSAttributedStringKey.font : font!], for: .normal)
+        segControl.setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
+        logoutBtn.setTitleTextAttributes([NSAttributedString.Key.font : font!], for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         thoughtsColRef = Firestore.firestore().collection(THOUGHTS_REF)
     }
     

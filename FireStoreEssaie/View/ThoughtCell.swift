@@ -30,9 +30,9 @@ class ThoughtCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        likeImg.image = likeImg.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        likeImg.image = likeImg.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         likeImg.tintColor = #colorLiteral(red: 0.1803921569, green: 0.4901960784, blue: 0.1960784314, alpha: 1)
-        commentImg.image = commentImg.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        commentImg.image = commentImg.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         commentImg.tintColor = #colorLiteral(red: 0, green: 0.9019607843, blue: 0.462745098, alpha: 1)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))

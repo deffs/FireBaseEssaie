@@ -27,11 +27,11 @@ class CreateVC: UIViewController {
         userBox.layer.cornerRadius = 8.0
         
         emailBox.attributedPlaceholder = NSAttributedString(string: "email",
-                                                               attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+                                                               attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
         passBox.attributedPlaceholder = NSAttributedString(string: "password",
-                                                            attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
         userBox.attributedPlaceholder = NSAttributedString(string: "public username",
-                                                            attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
         emailBox.setLeftPaddingPoints(10)
         passBox.setLeftPaddingPoints(10)
         userBox.setLeftPaddingPoints(10)

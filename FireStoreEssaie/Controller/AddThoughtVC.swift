@@ -21,7 +21,7 @@ class AddThoughtVC: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         let font = UIFont(name: "AvenirNext-Medium", size: 17.0)
-        catSegment.setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        catSegment.setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
         postBtn.layer.cornerRadius = 4.0
         thoughtTxt.layer.cornerRadius = 4.0
         thoughtTxt.text = "My random thought..."

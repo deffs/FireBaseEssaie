@@ -28,11 +28,11 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         commentBox.layer.cornerRadius = 8.0
         commentBox.setLeftPaddingPoints(10)
         commentBox.attributedPlaceholder = NSAttributedString(string: "Add Comment...",
-                                                            attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)])
         
         thoughtRef = firestore.collection(THOUGHTS_REF).document(thought.docId)
         if let name = Auth.auth().currentUser?.displayName {
