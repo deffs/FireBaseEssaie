@@ -33,7 +33,7 @@ class CommentCell: UITableViewCell {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, HH:mm"
         let timestamp = formatter.string(from: comment.timestamp)
-        timeLbl.text = timestamp
+        timeLbl.text = comment.commentTxt == "" ? "" : timestamp
         
         if comment.userId == Auth.auth().currentUser?.uid {
             optionsMenu.isHidden = false

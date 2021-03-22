@@ -35,7 +35,7 @@ class LoginVC: UIViewController {
 
     @IBAction func loginTap(_ sender: Any) {
         guard let email = emailBox.text,
-            let password = passBox.text else { return }
+              let password = passBox.text else { return }
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
@@ -48,9 +48,5 @@ class LoginVC: UIViewController {
     
     @IBAction func createTap(_ sender: Any) {
         self.performSegue(withIdentifier: "create", sender: self)
-        
     }
-    
-
-
 }

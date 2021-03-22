@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import FloatingPanel
 
 enum ThoughtCategory: Swift.String {
     case serious, funny, crazy, popular
 }
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ThoughtDelegate {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ThoughtDelegate, FloatingPanelControllerDelegate {
     
     @IBOutlet private weak var segControl: UISegmentedControl!
     @IBOutlet private weak var tableView: UITableView!
@@ -157,7 +158,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return thoughts.count
+        thoughts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -167,23 +168,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Thou
         } else {
             return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toComments", sender: thoughts[indexPath.row])
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toComments" {
-            if let vc = segue.destination as? CommentsVC {
-                if let thought = sender as? Thought {
-                    vc.thought = thought
-                }
-            }
+        let floatingPanel = FloatingPanelController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let contentVC = storyboard.instantiateViewController(identifier: "CommentsVC") as? CommentsVC
+        contentVC?.thought = thoughts[indexPath.row]
+        floatingPanel.set(contentViewController: contentVC)
+        floatingPanel.isRemovalInteractionEnabled = true
+
+        if self.presentedViewController != nil {
+            self.dismiss(animated: true, completion: nil)
         }
+        self.present(floatingPanel, animated: true, completion: nil)
     }
-    
-    
 }
 

@@ -19,6 +19,8 @@
 #ifndef GRPC_CORE_LIB_SECURITY_CREDENTIALS_JWT_JWT_VERIFIER_H
 #define GRPC_CORE_LIB_SECURITY_CREDENTIALS_JWT_JWT_VERIFIER_H
 
+#include <grpc/support/port_platform.h>
+
 #include "src/core/lib/iomgr/pollset.h"
 #include "src/core/lib/json/json.h"
 
@@ -54,7 +56,7 @@ typedef struct grpc_jwt_claims grpc_jwt_claims;
 void grpc_jwt_claims_destroy(grpc_jwt_claims* claims);
 
 /* Returns the whole JSON tree of the claims. */
-const grpc_json* grpc_jwt_claims_json(const grpc_jwt_claims* claims);
+const grpc_core::Json* grpc_jwt_claims_json(const grpc_jwt_claims* claims);
 
 /* Access to registered claims in https://tools.ietf.org/html/rfc7519#page-9 */
 const char* grpc_jwt_claims_subject(const grpc_jwt_claims* claims);
@@ -113,7 +115,7 @@ void grpc_jwt_verifier_verify(grpc_jwt_verifier* verifier,
 
 /* --- TESTING ONLY exposed functions. --- */
 
-grpc_jwt_claims* grpc_jwt_claims_from_json(grpc_json* json, grpc_slice buffer);
+grpc_jwt_claims* grpc_jwt_claims_from_json(grpc_core::Json json);
 grpc_jwt_verifier_status grpc_jwt_claims_check(const grpc_jwt_claims* claims,
                                                const char* audience);
 const char* grpc_jwt_issuer_email_domain(const char* issuer);

@@ -42,10 +42,8 @@ class ThoughtCell: UITableViewCell {
     
     @objc func likeTapped() {
         Firestore.firestore().collection(THOUGHTS_REF).document(thought.docId)
-            .setData([NUM_LIKES : thought.numLikes + 1], options: SetOptions.merge())
-        //Firestore.firestore().document("thoughts/\(thought.docId!)")
-//            .updateData([NUM_LIKES : thought.numLikes + 1])
-    }
+            .setData([NUM_LIKES : thought.numLikes + 1], merge: true)
+        }
 
     func configureCell(thought: Thought, delegate: ThoughtDelegate?) {
         optionsMenu.isHidden = true

@@ -47,23 +47,23 @@ class CreateVC: UIViewController {
                 debugPrint("Error creating user: \(error.localizedDescription)")
             }
             
-            let changeRequest = user?.createProfileChangeRequest()
+            let changeRequest = user?.user.createProfileChangeRequest()
             changeRequest?.displayName = username
             changeRequest?.commitChanges(completion: { (error) in
                 if let error = error {
                     debugPrint(error.localizedDescription)
                 }
             })
-            guard let userId = user?.uid else { return }
+            guard let userId = user?.user.uid else { return }
             Firestore.firestore().collection(USERS_REF).document(userId).setData([
                 USERNAME : username,
                 DATE_CREATED : FieldValue.serverTimestamp()
-                ], completion: {(error) in
-                    if let error = error {
-                        debugPrint(error.localizedDescription)
-                    } else {
-                        self.dismiss(animated: true, completion: nil)
-                    }
+            ], completion: {(error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
             })
         }
     }

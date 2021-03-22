@@ -63,13 +63,6 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func cOptionsTapped(comment: Comment) {
         let alert = UIAlertController(title: "Edit Comment", message: "Delete or Edit Comments", preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete Comment", style: .default) { (action) in
-//            self.firestore.collection(THOUGHTS_REF).document(self.thought.docId).collection(COM_REF).document(comment.docId).delete(completion: { (error) in
-//                if let error = error {
-//                    debugPrint("Unable to delete: \(error)")
-//                } else {
-//                    alert.dismiss(animated: true, completion: nil)
-//                }
-//            })
             self.firestore.runTransaction({ (transaction, error) -> Any? in
                 
                 let thoughtDoc: DocumentSnapshot
@@ -128,16 +121,15 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 debugPrint("Fetch error: \(error.localizedDescription)")
                 return nil
             }
-            guard let oldNumComments = thoughtDoc.data()![NUM_COMS] as? Int else {
-                return nil
-            }
-            transaction.updateData([NUM_COMS : oldNumComments + 1], forDocument: self.thoughtRef)
-            let newCommentRef = self.firestore.collection(THOUGHTS_REF).document(self.thought.docId)
-                .collection(COM_REF).document()
-            guard let username = self.username else {
+
+            guard let oldNumComments = thoughtDoc.data()![NUM_COMS] as? Int, let username = self.username else {
                 debugPrint("username is nil")
                 return nil
             }
+
+            let newCommentRef = self.firestore.collection(THOUGHTS_REF).document(self.thought.docId)
+                .collection(COM_REF).document()
+            transaction.updateData([NUM_COMS : oldNumComments + 1], forDocument: self.thoughtRef)
             transaction.setData([
                 COM_TXT : commentTxt,
                 TIMESTAMP : FieldValue.serverTimestamp(),
@@ -158,10 +150,17 @@ class CommentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
+        comments.count == 0 ? 1 : comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if comments.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCell
+            let comment = Comment(username: "No Comments, Please Comment Below", timestamp: Date(), commentTxt: "", docId: "", userId: "")
+            cell.configureCell(comment: comment, delegate: self)
+            return cell
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCell
         cell.configureCell(comment: comments[indexPath.row], delegate: self)
         return cell

@@ -32,7 +32,7 @@ class UpdateCommentVC: UIViewController {
                 if let error = error {
                     debugPrint("Unable to update \(error)")
                 } else {
-                    self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
